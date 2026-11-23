@@ -1,5 +1,7 @@
 # Claude Cowork Field Guide
 
+[![Validate documentation](https://github.com/codethor0/claude-cowork-field-guide/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/codethor0/claude-cowork-field-guide/actions/workflows/validate.yml)
+
 A practical, independently written guide to delegating real work to Claude Cowork: how to brief a task, choose permissions, schedule recurring work, give Claude standing context, build and test skills, review plugins, and stay safe in the browser. It includes seven hands-on exercises with synthetic data and small validation scripts for the documentation itself.
 
 > Independent educational resource. Not affiliated with, sponsored by, or endorsed by Anthropic or Claude Academy. Claude and associated product names belong to their respective owners.
@@ -60,7 +62,7 @@ The maintainer completed the Claude Academy course Introduction to Claude Cowork
 - To read: a web browser.
 - To practice offline: a text editor and copies of the walkthrough inputs.
 - To run Cowork exercises live: a paid Claude plan with Cowork access. Exercise 1 also needs Claude Desktop.
-- To run the repository checks: Python 3.9 or later (standard library only; no packages to install) and Git.
+- To run the repository checks: Python 3.11 or later (standard library only; no packages to install) and Git.
 
 ## Running the checks
 
@@ -72,7 +74,7 @@ python3 scripts/validate.py               # structure, links, hygiene, skills, c
 python3 scripts/check_skill.py examples/skills/weekly-status   # one skill's frontmatter
 ```
 
-The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, example skill frontmatter, forbidden file types, secret-like strings, em dashes in prose, and the CI workflow's security settings. The [GitHub Actions workflow](.github/workflows/validate.yml) is configured to run the same commands on pull requests and pushes to `main`.
+The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, example skill frontmatter, forbidden file types, secret-like strings, em dashes in prose, and the CI workflow's security settings. The [GitHub Actions workflow](.github/workflows/validate.yml) runs the same checks on pull requests, pushes to `main`, and once a month. The monthly run does not update documentation or validate external links.
 
 External links are reviewed by hand before releases and are not checked in CI.
 
@@ -107,6 +109,8 @@ Scope details are in [NOTICE.md](NOTICE.md).
 ## Contributing
 
 Corrections are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md). Do not submit Academy lesson text, quiz questions, or screenshots.
+
+See [MAINTENANCE.md](MAINTENANCE.md) for validation, monitoring, and the human review boundary.
 
 ## Maintainer
 

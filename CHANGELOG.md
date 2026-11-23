@@ -4,6 +4,13 @@ Notable changes to this repository. Dates are ISO 8601.
 
 ## Unreleased
 
+### Changed
+
+- Added low-touch maintenance guidance, a contribution checklist, and scheduled validation.
+- Clarified skill packaging differences and recommended supported Python 3.11+.
+
+## Initial public release - 2026-11-22
+
 ### Added
 
 - Twelve guides in `docs/` covering getting started, delegating a task, permissions and modes, scheduled tasks and remote access, instructions and projects, skills, plugins, browser and computer use, Microsoft 365 add-ins, safety, Team and Enterprise, and troubleshooting.
