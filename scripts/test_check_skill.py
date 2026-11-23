@@ -5,7 +5,7 @@ from pathlib import Path
 import check_skill as cs
 import validate as v
 
-GOOD = "---\nname: Weekly status\ndescription: Turns notes into a status report.\n---\n\n# Steps\n\n1. Read.\n"
+GOOD = "---\nname: s\ndescription: Turns notes into a status report.\n---\n\n# Steps\n\n1. Read.\n"
 
 
 def write(folder: Path, text: str):
@@ -44,29 +44,41 @@ class CheckSkillTests(unittest.TestCase):
         self.assertTrue(any("'description' is required" in e for e in errs))
 
     def test_limits_enforced_at_boundary(self):
-        ok = "---\nname: " + "n" * cs.NAME_MAX + "\ndescription: " + "d" * cs.DESCRIPTION_MAX + "\n---\nbody\n"
-        write(self.root / "ok", ok)
-        self.assertEqual(cs.check_skill_dir(self.root / "ok"), [])
-        long = "---\nname: " + "n" * (cs.NAME_MAX + 1) + "\ndescription: " + "d" * (cs.DESCRIPTION_MAX + 1) + "\n---\nbody\n"
-        write(self.root / "long", long)
-        errs = cs.check_skill_dir(self.root / "long")
+        ok_name = "n" * cs.NAME_MAX
+        ok = "---\nname: " + ok_name + "\ndescription: " + "d" * cs.DESCRIPTION_MAX + "\n---\nbody\n"
+        write(self.root / ok_name, ok)
+        self.assertEqual(cs.check_skill_dir(self.root / ok_name), [])
+        long_name = "n" * (cs.NAME_MAX + 1)
+        long = "---\nname: " + long_name + "\ndescription: " + "d" * (cs.DESCRIPTION_MAX + 1) + "\n---\nbody\n"
+        write(self.root / long_name, long)
+        errs = cs.check_skill_dir(self.root / long_name)
         self.assertEqual(len(errs), 2)
         self.assertTrue(all("maximum" in e for e in errs))
 
     def test_quotes_are_not_counted(self):
-        write(self.root / "s", '---\nname: "' + "n" * cs.NAME_MAX + '"\ndescription: x\n---\nbody\n')
-        self.assertEqual(cs.check_skill_dir(self.root / "s"), [])
+        write(self.root / "quoted", '---\nname: "quoted"\ndescription: x\n---\nbody\n')
+        self.assertEqual(cs.check_skill_dir(self.root / "quoted"), [])
 
     def test_empty_body_reported(self):
-        write(self.root / "s", "---\nname: a\ndescription: b\n---\n\n")
+        write(self.root / "s", "---\nname: s\ndescription: b\n---\n\n")
         self.assertIn("body is empty", cs.check_skill_dir(self.root / "s")[0])
 
     def test_malformed_line_reported(self):
         write(self.root / "s", "---\nname a\n---\nbody\n")
         self.assertIn("expected 'key: value'", cs.check_skill_dir(self.root / "s")[0])
 
+    def test_folder_name_must_match(self):
+        write(self.root / "other", GOOD)
+        errs = cs.check_skill_dir(self.root / "other")
+        self.assertEqual(len(errs), 1)
+        self.assertIn("does not match", errs[0])
+
+    def test_multiline_value_reported(self):
+        write(self.root / "s", "---\nname: s\ndescription: >\n  folded text\n---\nbody\n")
+        self.assertIn("multi-line", cs.check_skill_dir(self.root / "s")[0])
+
     def test_main_exit_codes(self):
-        write(self.root / "good", GOOD)
+        write(self.root / "good", GOOD.replace("name: s", "name: good"))
         (self.root / "bad").mkdir()
         self.assertEqual(cs.main(["check_skill.py", str(self.root / "good")]), 0)
         self.assertEqual(cs.main(["check_skill.py", str(self.root / "bad")]), 1)
@@ -76,7 +88,7 @@ class CheckSkillTests(unittest.TestCase):
         self.assertTrue(v.check_example_skills(self.root))
         write(self.root / "examples" / "skills" / "s", GOOD)
         self.assertEqual(v.check_example_skills(self.root), [])
-        write(self.root / "examples" / "skills" / "t", "---\nname: x\n---\nbody\n")
+        write(self.root / "examples" / "skills" / "t", "---\nname: t\n---\nbody\n")
         errs = v.check_example_skills(self.root)
         self.assertEqual(len(errs), 1)
         self.assertNotIn(str(self.root), errs[0])

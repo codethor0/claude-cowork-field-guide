@@ -13,6 +13,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 from check_skill import check_skill_dir
 
@@ -85,7 +86,9 @@ SKIP_DIRS = {".git", "__pycache__", ".pytest_cache"}
 EM_DASH = "\u2014"
 PROSE_EXEMPT = {"CONTENT_LICENSE.md"}
 FENCE = re.compile(r"^\s*```")
-LINK = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+LINK = re.compile(r"!?\[[^\]]*\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
+REF_DEF = re.compile(r"^\s{0,3}\[[^\]]+\]:\s*(\S+)", re.M)
+TEXT_SUFFIXES = {".md", ".py", ".yml", ".yaml", ".csv", ".txt"}
 DATE = re.compile(r"^Last reviewed: \d{4}-\d{2}-\d{2}\s*$", re.M)
 
 
@@ -128,12 +131,15 @@ def strip_fences(text: str) -> str:
 
 
 def heading_slugs(text: str) -> set:
-    slugs = set()
+    """GitHub-style anchors, including the -1, -2 suffixes for repeated headings."""
+    slugs, counts = set(), {}
     for line in strip_fences(text).splitlines():
         m = re.match(r"^#{1,6}\s+(.*?)\s*#*\s*$", line)
         if m:
             s = re.sub(r"[^\w\- ]", "", m.group(1).lower()).strip().replace(" ", "-")
-            slugs.add(s)
+            n = counts.get(s, 0)
+            slugs.add(s if n == 0 else f"{s}-{n}")
+            counts[s] = n + 1
     return slugs
 
 
@@ -159,10 +165,13 @@ def check_links(root: Path):
         if path.suffix != ".md":
             continue
         text = path.read_text(encoding="utf-8")
-        for target in LINK.findall(strip_fences(text)):
+        body = strip_fences(text)
+        for target in LINK.findall(body) + REF_DEF.findall(body):
+            target = target.strip("<>")
             if re.match(r"^[a-z][a-z0-9+.-]*:", target, re.I):
                 continue  # external or mailto; not checked offline
             file_part, _, anchor = target.partition("#")
+            file_part = unquote(file_part)
             if file_part.startswith("/"):
                 dest = (root / file_part.lstrip("/")).resolve()
             else:
@@ -180,10 +189,10 @@ def check_links(root: Path):
 
 
 def check_prose_style(root: Path):
-    """Reject the em dash in authored Markdown. Third-party license text is exempt."""
+    """Reject the em dash in authored text files. Third-party license text is exempt."""
     errors = []
     for path in list_files(root):
-        if path.suffix != ".md" or path.name in PROSE_EXEMPT:
+        if path.suffix not in TEXT_SUFFIXES or path.name in PROSE_EXEMPT:
             continue
         for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if EM_DASH in line:

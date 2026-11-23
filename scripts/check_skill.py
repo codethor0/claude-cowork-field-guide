@@ -3,7 +3,11 @@
 
 Per the Claude Help Center (How to create custom skills, checked 2026-11-22),
 skill.md starts with YAML frontmatter holding a required name (64 characters
-maximum) and description (200 characters maximum).
+maximum) and description (200 characters maximum), and the skill folder name
+must match the skill's name.
+
+Only simple one-line "key: value" frontmatter is supported. Multi-line YAML
+values (such as "description: >") are reported as errors; write them on one line.
 
 Uses only the Python standard library and makes no network requests.
 Usage: python3 scripts/check_skill.py SKILL_DIR [SKILL_DIR ...]
@@ -34,6 +38,8 @@ def parse_frontmatter(text: str):
         key, sep, value = line.partition(":")
         if not sep or not key.strip():
             raise ValueError(f"line {number}: expected 'key: value'")
+        if value.strip() in (">", "|", ">-", "|-"):
+            raise ValueError(f"line {number}: multi-line values are not supported; use one line")
         fields[key.strip()] = value.strip().strip('"').strip("'")
     return fields, "\n".join(lines[end + 1:])
 
@@ -54,6 +60,8 @@ def check_skill_dir(folder: Path):
         errors.append(f"{path}: 'name' is required")
     elif len(name) > NAME_MAX:
         errors.append(f"{path}: 'name' is {len(name)} characters; maximum is {NAME_MAX}")
+    elif name != folder.resolve().name:
+        errors.append(f"{path}: folder name '{folder.resolve().name}' does not match skill name '{name}'")
     if not description:
         errors.append(f"{path}: 'description' is required")
     elif len(description) > DESCRIPTION_MAX:

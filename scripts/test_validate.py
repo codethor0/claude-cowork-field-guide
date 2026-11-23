@@ -163,6 +163,25 @@ class ValidatorTests(unittest.TestCase):
         make(self.root, {"a.md": "plain text\n", "LICENSE": "MIT\n"})
         self.assertEqual(v.check_hygiene(self.root), [])
 
+    def test_encoded_image_reference_and_repeated_heading_links(self):
+        make(
+            self.root,
+            {
+                "my file.md": "# Notes\n\ntext\n\n# Notes\n",
+                "a.md": "[enc](my%20file.md) [dup](my%20file.md#notes-1) ![img](missing.png)\n\n[r]: nope.md\n",
+            },
+        )
+        errs = v.check_links(self.root)
+        self.assertEqual(len(errs), 2)
+        self.assertTrue(any("missing.png" in e for e in errs))
+        self.assertTrue(any("nope.md" in e for e in errs))
+
+    def test_em_dash_checked_in_non_markdown_text(self):
+        make(self.root, {"w.yml": "name: a \u2014 b\n", "s.py": "x = 1\n"})
+        errs = v.check_prose_style(self.root)
+        self.assertEqual(len(errs), 1)
+        self.assertIn("w.yml", errs[0])
+
     def test_workflow_rules(self):
         good = (
             "permissions:\n  contents: read\njobs:\n  j:\n    timeout-minutes: 5\n"
