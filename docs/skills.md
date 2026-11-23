@@ -14,7 +14,7 @@ The Help Center describes a skill as a directory with a `skill.md` file that sta
 
 | Field | Required | Limit | Purpose |
 |---|---|---|---|
-| `name` | Yes | 64 characters | Human-readable name |
+| `name` | Yes | 64 characters | The skill's name. Per the Help Center, the folder name must match it, or the upload can fail. |
 | `description` | Yes | 200 characters | What it does and when to use it. Claude uses this to decide when to invoke the skill. |
 | `dependencies` | No | | Software packages the skill needs |
 
@@ -43,7 +43,7 @@ The Help Center advises testing a skill with a few different prompts after you u
 3. One prompt with incomplete input, to see how it handles gaps.
 4. For each, write down the expected result before you run it, then compare.
 
-Rerun the same set after every change to the skill. A sample set is in [examples/skills/weekly-status/test-prompts.md](../examples/skills/weekly-status/test-prompts.md), and `scripts/check_skill.py` checks a skill's frontmatter limits offline. Practice with [Exercise 5](../exercises/05-build-and-test-a-skill.md).
+Rerun the same set after every change to the skill. A sample set is in [examples/skills/weekly-status/test-prompts.md](../examples/skills/weekly-status/test-prompts.md), and `scripts/check_skill.py` checks a skill's frontmatter limits and folder name offline. Practice with [Exercise 5](../exercises/05-build-and-test-a-skill.md).
 
 ## Official reference
 

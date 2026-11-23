@@ -25,8 +25,8 @@ Per the Help Center (checked 2026-11-22):
 - Cowork is available on paid plans (Pro, Max, Ultra, Team, Enterprise).
 - Desktop app on macOS, Windows, and Linux (beta): all paid plans. Desktop is the full experience, including local files and the browser.
 - Web and mobile: Pro, Max, Ultra, and Team (beta on Team), and Enterprise when an owner enables it.
-- Chrome side panel: all paid plans; opening the panel starts a Cowork session directly.
-- Sessions run in the cloud on Anthropic's servers, in an isolated environment. Work continues if you close your laptop, and the same session is available on every surface.
+- Chrome side panel: all paid plans, per the Cowork getting-started article; on Enterprise an owner must enable it. Opening the panel starts a Cowork session directly.
+- Sessions run in the cloud on Anthropic's servers, in an isolated environment. Work continues if you close your laptop, and the same session is available on every surface. On Enterprise plans, sessions run locally (code in an isolated virtual machine on your computer) until an owner turns on "Run Cowork in the cloud".
 - Local files, the browser, and computer use are reached through the desktop app, so it must be open and online for tasks that need them.
 
 Some accounts have a newer combined experience where the message box no longer shows separate "Chat" and "Cowork" options. In that case any conversation can take on a Cowork task. The steps below describe the separate-option layout.
@@ -44,7 +44,7 @@ Use a test folder with copies of files for the first few tasks. See [Exercise 1]
 ## What happens during a task
 
 - Claude makes a plan and may split the work into subtasks or parallel sub-agents.
-- Code and shell commands run in the isolated cloud environment, not on your computer.
+- Code and shell commands run in the isolated cloud environment, not on your computer (in a local isolated virtual machine for Enterprise sessions that are not in the cloud).
 - Progress indicators show each step. You can add direction at any time, from any surface.
 - Claude asks for explicit permission before permanently deleting files.
 

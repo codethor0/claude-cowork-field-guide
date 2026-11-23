@@ -22,9 +22,11 @@ You can change the mode at any time from the mode selector in the message box.
 | Auto (Automatically approve) | | Claude keeps working and an automated check reviews actions before they run, blocking ones it judges unsafe. The check can miss risky actions. |
 | Skip (Skip all approvals) | Act without asking | Claude does not pause and nothing checks actions automatically. Use only when you fully trust every file, connector, app, and site involved. |
 
-In Auto mode, connector tools you set to "Always allow" are not screened, except tools the connector marks as destructive.
+In Auto mode, connector tools set to "Needs approval" can run without asking you (the automated check reviews them instead), and tools set to "Always allow" are not screened, except tools the connector marks as destructive. To approve a tool yourself in every mode, set it to "Always ask".
 
-On Team and Enterprise plans, an admin can remove Auto mode or require per-task approval for write-capable connector tools. See [Team and Enterprise](team-and-enterprise.md).
+Defaults, per the Help Center: in the newer combined experience, Auto is rolling out as the default on Pro, Max, Ultra, and Team plans, and Manual is the default on Enterprise. Check the mode selector before a task instead of assuming you start in Manual.
+
+On Team and Enterprise plans, an admin can remove Auto mode. Write-capable connector tools need approval per task unless the admin turns on "Allow 'Always allow' for connector tools", which is off by default. See [Team and Enterprise](team-and-enterprise.md).
 
 ## Connector tool permissions
 

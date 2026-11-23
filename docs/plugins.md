@@ -31,13 +31,13 @@ Use this checklist before adding a plugin, especially from outside your organiza
 | Do its skills match what it claims to do? | Unexpected skills widen scope |
 | Can you remove it cleanly? | You may need to back out |
 
-On Enterprise plans, an organization can turn on skill and plugin scanning, which checks plugins for malicious content when they are installed or updated. Practice with [Exercise 6](../exercises/06-review-a-plugin.md).
+On Enterprise plans, skill and plugin scanning checks plugins for malicious content when they are installed or updated. It is on by default for Enterprise organizations that had not chosen a setting before 2026-10-02. Practice with [Exercise 6](../exercises/06-review-a-plugin.md).
 
 ## Sharing with a team
 
 On Team and Enterprise plans, after an owner turns on sharing:
 
-- Share a plugin with specific colleagues (Team and Enterprise) or a group (Enterprise). Recipients get a view-only copy that stays off until they enable it.
+- Share a plugin with specific colleagues (Team and Enterprise) or a group (Enterprise). Recipients get view-only access that stays off until they enable it, and they receive your updates automatically. Plugins you added from a marketplace cannot be shared.
 - Publish a plugin to the organization library. If review is required, an owner approves it, and updates go through the same review.
 - Owners can run plugin marketplaces: curated sets of plugins distributed to the organization. Anthropic provides built-in marketplaces, and a Knowledge Work marketplace is added by default.
 

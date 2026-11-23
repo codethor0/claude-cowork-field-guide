@@ -14,6 +14,6 @@ Each exercise has an objective, prerequisites, input data, a copy-ready prompt, 
 | 4 | [Write standing instructions](04-write-standing-instructions.md) | [Instructions, projects, and memory](../docs/instructions-projects-and-memory.md) | No |
 | 5 | [Build and test a skill](05-build-and-test-a-skill.md) | [Skills](../docs/skills.md) | No |
 | 6 | [Review a plugin](06-review-a-plugin.md) | [Plugins](../docs/plugins.md) | No |
-| 7 | [Plan a safe browser task](07-plan-a-safe-browser-task.md) | [Browser and computer use](../docs/browser-and-computer-use.md) | For part C only |
+| 7 | [Plan a safe browser task](07-plan-a-safe-browser-task.md) | [Browser and computer use](../docs/browser-and-computer-use.md) | No |
 
 Use a dedicated practice folder with copies of files. Never use real financial, medical, or personal data in an exercise.

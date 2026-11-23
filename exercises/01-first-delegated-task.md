@@ -24,11 +24,11 @@ row of the attached file-list.csv. Use the exact file name. Put the
 content_hint text inside each file. Do not create anything else.
 ```
 
-Part B, the real task:
+Part B, the real task. Attach `file-list.csv` again:
 
 ```text
 Outcome: the cowork-practice folder organized so I can find things quickly.
-Inputs: only the files in cowork-practice.
+Inputs: the files in cowork-practice, plus the attached file-list.csv for dates.
 Constraints: do not delete any file. Do not touch anything outside this folder.
 Format: subfolders Photos, Receipts and invoices, Budgets, Notes and
 agendas, Other. Rename files to YYYY-MM-DD description.ext using the date
@@ -47,7 +47,7 @@ Ask me before: anything that would overwrite a file.
 
 ## Verification checklist
 
-- [ ] Count files before and after: twelve both times.
+- [ ] Count files before and after: twelve originals before; the same twelve plus `changes.md` after.
 - [ ] Open `changes.md` and spot-check three rows against the folder.
 - [ ] Confirm no file outside `cowork-practice` changed.
 - [ ] Note any question Claude asked and whether your brief could have answered it.

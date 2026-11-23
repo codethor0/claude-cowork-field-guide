@@ -20,13 +20,13 @@ When you can, connect the tools you use most. Screen interaction is slower and m
 | Your logins | None unless you import cookies or sign in inside it | The accounts you are already signed in to |
 | Best for | Handing off the web part of a task | Work on a page that is already in front of you |
 
-If you already use Claude in Chrome, it stays the default; otherwise Cowork uses the built-in browser. Change it in the desktop app under Settings > Cowork > Preferred browser. Both need the desktop app open and online for tasks started elsewhere.
+If you already use Claude in Chrome, it stays the default; otherwise Cowork uses the built-in browser. Change it in the desktop app under Settings > Cowork > Preferred browser. For tasks started on web or mobile, the built-in browser needs the desktop app open and online. With Claude in Chrome, those tasks use the extension directly; per the Help Center, the session must be connected to a desktop, but the app does not have to be open.
 
 Anything you sign in to inside the built-in browser stays available to Claude in later sessions on that computer. Import cookies site by site and clear the ones you do not need.
 
 ## Browser safety
 
-Both browsers run the same safeguards per the Help Center: Claude asks before acting on a new site, high-risk sites are blocked, and actions are checked against what you asked for. Prompt injection, instructions hidden in a web page, remains possible. The Help Center strongly advises against using either browser for sensitive information such as financial accounts, medical information, or other people's personal data.
+Both browsers run the same safeguards per the Help Center: Claude asks before acting on a new site, high-risk sites are blocked, and actions are checked against what you asked for. Prompt injection, instructions hidden in a web page, remains possible. Keep financial accounts, medical information, and other people's personal data out of both browsers, as the Help Center advises.
 
 Build trust in steps: ask Claude to read a page and report before you ask it to act on one. "Read this page and summarize the pricing table" comes before "fill in this form".
 
@@ -37,6 +37,7 @@ Practice with [Exercise 7](../exercises/07-plan-a-safe-browser-task.md).
 Computer use lets Claude see your screen and operate desktop apps. Per the Help Center (checked 2026-11-22):
 
 - Available on Pro, Max, and Ultra in the desktop app on macOS and Windows. On Team and Enterprise it is a beta that an owner must turn on, and it works only in the newer combined experience.
+- On some Pro, Max, and Ultra accounts the Enable computer use toggle is already on. Check Settings rather than assuming it is off.
 - Claude asks permission before using each app. You can block apps.
 - In browsers and many trading or crypto apps, Claude can see but not click or type. In terminals and code editors it can click and scroll but not type. Most other apps get full access.
 - Computer use is not limited to connected folders, and Cowork's deletion protection does not apply to it.

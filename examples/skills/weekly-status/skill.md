@@ -1,5 +1,5 @@
 ---
-name: Weekly status report
+name: weekly-status
 description: Turns a week of meeting notes into a one-page status report with decisions, risks, actions, and open questions. Use for weekly status or weekly recap requests.
 ---
 

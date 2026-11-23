@@ -31,7 +31,7 @@ Cloud sessions run in an isolated, temporary environment on Anthropic's servers 
 - [ ] Connectors are limited to what the task needs; sensitive write tools are set to "Always ask".
 - [ ] The mode matches the stakes (see [Permissions and modes](permissions-and-modes.md)).
 - [ ] Sites are ones you trust; no banking, health, or other people's personal data in the browser.
-- [ ] Computer use is off or limited to approved, non-sensitive apps.
+- [ ] Computer use is off or limited to approved, non-sensitive apps. On some accounts the toggle is on by default, so check Settings.
 
 ## Watch during a task
 

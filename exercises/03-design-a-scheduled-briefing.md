@@ -12,22 +12,23 @@ A paid Claude plan. Read [Scheduled tasks and working from anywhere](../docs/sch
 
 ## Input data
 
-[examples/meeting-notes/week-47.md](../examples/meeting-notes/week-47.md). Save it to your Claude account or a project so a cloud task can read it.
+[examples/meeting-notes/week-47.md](../examples/meeting-notes/week-47.md). Create a Cowork project called `Team briefings`, add `week-47.md` to it, and create the scheduled task inside that project (projects have their own scheduled tasks).
 
 ## Copy-ready prompt
 
-Create the task from "Scheduled" > "New task" > "Set up manually", approval mode Manual, frequency weekly, and use this prompt:
+Inside the project, create a scheduled task: approval mode Manual, frequency weekly. Use this prompt:
 
 ```text
-Every Friday, read the meeting notes saved for this week. Write a briefing
+Every Friday, read the newest weekly notes file in this project (today that
+is week-47.md). Write a briefing
 with these sections: Decisions, Risks, Actions (owner and due date when
 stated), Open questions. If a risk or question was resolved later in the
-week, show it as resolved. If no notes exist for this week, write a
-one-line briefing that says so and stop. Save the briefing as
+week, show it as resolved. If no notes file is newer than the last
+briefing, write a one-line briefing that says so and stop. Save the briefing as
 briefing-YYYY-MM-DD.md. Do not send, share, or email anything.
 ```
 
-Then click "Run" (run on demand) once instead of waiting for Friday.
+Then run it on demand once instead of waiting for Friday. In Manual mode the run may pause for your approval; check the task if it seems stuck.
 
 ## Expected result characteristics
 
@@ -47,7 +48,7 @@ Then click "Run" (run on demand) once instead of waiting for Friday.
 ## Common failure modes
 
 - Choosing a folder, which ties the task to your computer being on.
-- Leaving out the "no notes" case, so Claude summarizes stale material.
+- Leaving out the "no new notes" case, so Claude summarizes stale material.
 - Adding an email step before the output has been reviewed for several weeks.
 
 ## Follow-up

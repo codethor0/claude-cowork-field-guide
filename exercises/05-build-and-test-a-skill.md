@@ -25,10 +25,10 @@ Code execution and file creation enabled (see [Skills](../docs/skills.md)). Pyth
    ```
 
 2. Zip the `weekly-status` folder and upload it in Customize > Skills.
-3. Attach `week-47.md` and run the four prompts in the test set, one per task:
+3. Run the four prompts in the test set, one per task. Attach `week-47.md` for prompts 1 to 3. Run prompt 4 in a new task with nothing attached and Memory turned off in the "+" menu:
 
 ```text
-Write this week's status from the notes in meeting-notes.
+Write this week's status from the attached notes.
 ```
 
 ```text

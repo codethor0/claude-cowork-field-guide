@@ -4,7 +4,7 @@ Last reviewed: 2026-11-22
 
 ## Scheduled tasks
 
-A scheduled task saves a prompt as instructions and runs it on a cadence or on demand. Per the Help Center, each run is its own Cowork session with the same capabilities as a regular task: connectors, skills, and plugins. Scheduled tasks run in the cloud, so they keep running when your computer is asleep or the desktop app is closed. They are available on all paid plans.
+A scheduled task saves a prompt as instructions and runs it on a cadence or on demand. Per the Help Center, each run is its own Cowork session with the same capabilities as a regular task: connectors, skills, and plugins. Scheduled tasks run in the cloud, so they keep running when your computer is asleep or the desktop app is closed. They are available on all paid plans. On Team and Enterprise plans, cloud runs depend on "Run Cowork in the cloud" being on, which is the default for Team but not for Enterprise.
 
 Ways to create one:
 
