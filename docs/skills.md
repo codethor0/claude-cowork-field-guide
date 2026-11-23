@@ -10,6 +10,8 @@ Good candidates are tasks you repeat with the same steps and the same expected o
 
 ## Anatomy
 
+The [custom-skills Help Center](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills) documents lowercase `skill.md`. The [organization provisioning guide](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization) and Claude Code instructions require uppercase `SKILL.md` for their respective surfaces. The example here follows the custom-skill upload instructions. Verify the target surface's current packaging and metadata rules before reusing it elsewhere.
+
 The Help Center describes a skill as a directory with a `skill.md` file that starts with YAML frontmatter:
 
 | Field | Required | Limit | Purpose |
