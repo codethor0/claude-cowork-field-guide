@@ -17,7 +17,5 @@ __pycache__/
 # Local-only notes and agent state; never published
 .claude/
 CLAUDE.md
-# The published teaching example is the one exception
-!examples/before-you-build/CLAUDE.md
 .handoff/
 *.local.md
