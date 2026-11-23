@@ -1,0 +1,45 @@
+name: Documentation issue
+description: Report an inaccurate, outdated, unclear, or broken part of the documentation.
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Page or file
+      description: Path or link to the affected page.
+      placeholder: docs/permissions-and-modes.md
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of problem
+      options:
+        - Factual error
+        - Outdated product information
+        - Broken or wrong link
+        - Unclear explanation
+        - Exercise does not work as described
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What is wrong
+      description: Describe the problem. For factual or product claims, link the official source that contradicts the text.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Do not include secrets, personal data, or confidential material.
+        Do not paste Claude Academy lesson text or quiz content.
+        For security problems, see SECURITY.md instead of filing a public issue.
