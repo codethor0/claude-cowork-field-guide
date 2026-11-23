@@ -176,6 +176,26 @@ class ValidatorTests(unittest.TestCase):
         self.assertTrue(any("missing.png" in e for e in errs))
         self.assertTrue(any("nope.md" in e for e in errs))
 
+    def test_encoded_fragment_and_colliding_heading_suffix(self):
+        make(self.root, {
+            "notes.md": "# Café\n\n# Notes\n\n# Notes-1\n\n# Notes\n",
+            "a.md": "[cafe](notes.md#caf%C3%A9) [repeat](notes.md#notes-2)",
+        })
+        self.assertEqual(v.check_links(self.root), [])
+
+    def test_symlink_is_rejected_without_reading_its_target(self):
+        with tempfile.TemporaryDirectory() as other:
+            target = Path(other) / "binary.md"
+            target.write_bytes(b"\xff")
+            (self.root / "README.md").symlink_to(target)
+            (self.root / "broken.md").symlink_to(target.with_name("missing"))
+            self.assertEqual(list(v.list_files(self.root)), [])
+            self.assertEqual(v.check_hygiene(self.root), [
+                "README.md: symbolic links are not allowed",
+                "broken.md: symbolic links are not allowed",
+            ])
+            self.assertEqual(v.main(["validate.py", str(self.root)]), 1)
+
     def test_em_dash_checked_in_non_markdown_text(self):
         make(self.root, {"w.yml": "name: a \u2014 b\n", "s.py": "x = 1\n"})
         errs = v.check_prose_style(self.root)

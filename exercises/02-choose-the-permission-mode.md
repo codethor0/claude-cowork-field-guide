@@ -44,8 +44,8 @@ F: Clean up a shared team drive with a connector that can delete files.
 ## Expected result characteristics
 
 - A: Auto is reasonable for a low-risk, reversible task.
-- B: Manual or "Always ask" on the send tool; drafting only.
-- C: a scheduled task with no write tools beyond saving the document.
+- B: Manual for drafting. Block the send tool if available and send replies yourself.
+- C: start in Manual, then consider Auto after checking the first runs. Grant only the tools needed to read public news and save the summary.
 - D: not delegated; the Help Center advises against sensitive financial actions in the browser.
 - E: Manual, in a test folder, after reviewing the plugin.
 - F: Manual with delete set to "Always ask", or split into a read-only audit first.
@@ -55,7 +55,7 @@ F: Clean up a shared team drive with a connector that can delete files.
 - [ ] Every answer names a mode and a reason.
 - [ ] Every scenario with a write tool says how that tool is controlled.
 - [ ] Scenario D is declined, not just set to Manual.
-- [ ] Your answers and Claude's differ in at most one scenario, or you can explain why.
+- [ ] Compare your decisions with the expected results. Resolve differences using the task risks and permissions.
 
 ## Common failure modes
 

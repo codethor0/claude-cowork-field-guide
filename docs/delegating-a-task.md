@@ -8,6 +8,8 @@ Delegating to Cowork works like briefing a capable colleague who has never seen 
 
 One rule sits above the rest: Claude does the drafting, you do the editing. Claude can produce in minutes a deliverable that would take you hours, and it can produce a wrong one just as fast. Whoever sends, publishes, or acts on the output owns it.
 
+Practice with a completed brief and sample files in [Before You Delegate](before-you-delegate.md).
+
 ## Write the brief
 
 A Cowork prompt is a work order, not a chat message. Three parts carry most of the weight:

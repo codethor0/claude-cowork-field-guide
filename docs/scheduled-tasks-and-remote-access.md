@@ -12,7 +12,7 @@ Ways to create one:
 - Click "Scheduled" in the left sidebar, then "New task", and choose "Create with Claude" or "Set up manually".
 - In the newer combined experience, describe the task and its timing in any conversation, review the proposal, and click "Schedule".
 
-A manual setup asks for a name, the prompt, the approval mode, the frequency (hourly, daily, weekly, weekdays, or manual), and optionally a model and a folder. Choosing a folder ties the task to your computer: it then runs only while the computer is awake and the desktop app is open.
+A manual setup asks for a name, the prompt, the approval mode, the frequency (hourly, daily, weekly, weekdays, or manual), and optionally a model and a folder. Choosing a folder turns on "Require this computer". The task then runs only while that computer is awake and Claude Desktop is open. The Help Center says organizations see this option only when Computer access is enabled.
 
 From the Scheduled page you can review past and upcoming runs, edit, pause, resume, delete, or run a task on demand.
 

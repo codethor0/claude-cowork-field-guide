@@ -11,7 +11,7 @@ Anthropic's product page describes Claude add-ins that work inside Excel, PowerP
 | Excel | Explains cells, changes model inputs while keeping formulas intact, builds new models |
 | PowerPoint | Creates slides that follow your template, revises selected content, adds native charts |
 | Word | Revises text as tracked changes, works through comments, follows your styles |
-| Outlook | Sorts the inbox, prepares draft replies for you to send yourself, schedules meetings |
+| Outlook | Helps triage the inbox, drafts replies for your review, looks for openings across calendars |
 
 ## How they fit with Cowork
 

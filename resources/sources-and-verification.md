@@ -11,13 +11,24 @@ How the claims in this repository were checked, and what was not.
 - Where a statement depends on plan or rollout, the page says "per the Help Center" and carries a review date.
 - Methods presented as this guide's own (the brief template, the skill test set, the plugin review, the rollout pattern) are labeled as such.
 
+## Course coverage
+
+The table maps the course's four modules to independent reading and practice. The module overview is on the [course page](https://academy.claude.com/courses/introduction-to-claude-cowork).
+
+| Module | Topics and field guide path |
+|---|---|
+| 1. Set up and delegate | Compare chat, Cowork, and Claude Code in [Getting started](../docs/getting-started.md). Use [Before You Delegate](../docs/before-you-delegate.md) to set scope, plan the work, and check a finished draft. See [Scheduled tasks](../docs/scheduled-tasks-and-remote-access.md) for recurring work and remote monitoring. |
+| 2. Improve repeatable work | Use the [delegation template](../docs/delegating-a-task.md) and [standing context](../docs/instructions-projects-and-memory.md). Package a repeatable workflow as a [skill](../docs/skills.md), or review how [plugins](../docs/plugins.md) combine skills, connectors, and sub-agents. |
+| 3. Work across apps | Compare [the built-in browser and Claude in Chrome](../docs/browser-and-computer-use.md). Review the scope of the [Microsoft 365 add-ins](../docs/microsoft-365.md) before connecting Office documents or mail. |
+| 4. Validate and share | Apply the controls in [Safety](../docs/safety.md), compare a [skill with and without its instructions](../exercises/05-build-and-test-a-skill.md), and use [plugin sharing](../docs/plugins.md#sharing-with-a-team) and [team controls](../docs/team-and-enterprise.md) for rollout. Use [Troubleshooting](../docs/troubleshooting.md) to decide what to try next. |
+
 ## Verified statements
 
 | Statement | Source | Status on 2026-11-22 |
 |---|---|---|
 | Cowork uses the same agentic architecture as Claude Code, no terminal required | [Get started](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) | Confirmed |
-| Paid plans only; surface availability by plan; sessions run in the cloud | Get started; [Web, desktop, mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile) | Confirmed |
-| Local files, browser, and computer use need the desktop app open | Get started | Confirmed |
+| Paid plans only; surface availability by plan; cloud and local session options | Get started; [Web, desktop, mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile); [Team and Enterprise](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans) | Confirmed |
+| Local files, the built-in browser, and computer use need Claude Desktop; Chrome extension tasks have separate requirements | Get started; [Built-in browser](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork) | Confirmed |
 | Manual, Auto, and Skip modes and their behavior; "Always ask" connector tool setting | Get started | Confirmed |
 | Explicit permission before permanent deletion; not covered for computer use | Get started; [Computer use](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork) | Confirmed |
 | Prompt injection needs both untrusted reading and harmful action; risk is not zero | [Use Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely) | Confirmed |

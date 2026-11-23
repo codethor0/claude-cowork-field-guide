@@ -6,7 +6,7 @@ Last reviewed: 2026-11-22
 
 Per the Help Center, you decide:
 
-- Which local folders Claude can read and write. Claude works only in folders you connect.
+- Which local folders Claude can read and write through folder access. Computer use can reach other files through apps you allow.
 - Which connectors Claude can use, and how each connector tool is approved.
 - How much Claude checks with you, through the permission mode.
 
@@ -20,7 +20,7 @@ You can change the mode at any time from the mode selector in the message box.
 |---|---|---|
 | Manual (Manually approve) | Ask before acting | Claude pauses and asks before actions. You choose Allow or Deny. |
 | Auto (Automatically approve) | | Claude keeps working and an automated check reviews actions before they run, blocking ones it judges unsafe. The check can miss risky actions. |
-| Skip (Skip all approvals) | Act without asking | Claude does not pause and nothing checks actions automatically. Use only when you fully trust every file, connector, app, and site involved. |
+| Skip (Skip all approvals) | Act without asking | Claude skips general approvals and automated action checks. Connector tools you set to "Always ask" still require approval. Use Skip only when you fully trust every file, connector, app, and site involved. |
 
 In Auto mode, connector tools set to "Needs approval" can run without asking you (the automated check reviews them instead), and tools set to "Always allow" are not screened, except tools the connector marks as destructive. To approve a tool yourself in every mode, set it to "Always ask".
 

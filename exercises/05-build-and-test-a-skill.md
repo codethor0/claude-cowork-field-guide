@@ -25,7 +25,8 @@ Code execution and file creation enabled (see [Skills](../docs/skills.md)). Pyth
    ```
 
 2. Zip the `weekly-status` folder and upload it in Customize > Skills.
-3. Run the four prompts in the test set, one per task. Attach `week-47.md` for prompts 1 to 3. Run prompt 4 in a new task with nothing attached and Memory turned off in the "+" menu:
+3. Disable the skill. Run the four prompts below, one per fresh task, and record the outputs as the baseline.
+4. Enable the skill and repeat with the same model, files, and settings. For both passes, attach `week-47.md` for prompts 1 to 3. For prompt 4, use a fresh task with no attachment and turn Memory off.
 
 ```text
 Write this week's status from the attached notes.
@@ -55,7 +56,7 @@ Weekly status please.
 - [ ] Each prompt scored Pass, Partial, or Fail against the table in the test set.
 - [ ] The resolved risk (photographer) is shown as resolved, not as an open risk.
 - [ ] No owner or due date appears that is not in the notes.
-- [ ] Results are recorded so you can compare after changes.
+- [ ] Compare both passes on factual accuracy, omissions, and treatment of missing input. Use the trigger column to assess the skill-enabled pass. Keep the skill only if it improves the intended task while preserving unrelated behavior. Repeat an uncertain case in a fresh task before drawing a conclusion.
 
 ## Common failure modes
 

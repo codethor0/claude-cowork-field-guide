@@ -14,7 +14,7 @@ The shift to keep in mind: in chat you get an answer to read. In Cowork you get 
 |---|---|---|---|
 | Best for | Questions, writing help, brainstorming, one uploaded document | Multi-file and folder work, deliverables saved back as files, recurring tasks, work across connectors | Software repositories: code changes, tests, debugging |
 | Your role | In the conversation | Brief, steer, review | Brief, review diffs |
-| Runs while you are away | No | Yes | Depends on setup |
+| Runs while you are away | No | Depends on the task and where it runs | Depends on setup |
 
 A short way to say it: chat answers you, Cowork works for you. Where the message box no longer shows separate options, the choice is about what you ask Claude to do rather than which button you press.
 
@@ -25,9 +25,9 @@ Per the Help Center (checked 2026-11-22):
 - Cowork is available on paid plans (Pro, Max, Ultra, Team, Enterprise).
 - Desktop app on macOS, Windows, and Linux (beta): all paid plans. Desktop is the full experience, including local files and the browser.
 - Web and mobile: Pro, Max, Ultra, and Team (beta on Team), and Enterprise when an owner enables it.
-- Chrome side panel: all paid plans, per the Cowork getting-started article; on Enterprise an owner must enable it. Opening the panel starts a Cowork session directly.
-- Sessions run in the cloud on Anthropic's servers, in an isolated environment. Work continues if you close your laptop, and the same session is available on every surface. On Enterprise plans, sessions run locally (code in an isolated virtual machine on your computer) until an owner turns on "Run Cowork in the cloud".
-- Local files, the browser, and computer use are reached through the desktop app, so it must be open and online for tasks that need them.
+- Chrome side panel: all paid plans, per the Cowork getting-started article; on Enterprise an owner must enable both Claude in Chrome and Cowork in the cloud. Opening the panel starts a Cowork session directly.
+- Cloud sessions run in an isolated environment on Anthropic's servers. They can continue with your laptop closed when the task uses cloud inputs and tools. Local folders and the built-in browser need Claude Desktop online. Team owners can turn cloud sessions off. On Enterprise, cloud sessions are off by default and need both an organization setting and access for your group. Local sessions run code in an isolated virtual machine on your computer.
+- Computer use also needs Claude Desktop and an awake computer. See [browser setup](browser-and-computer-use.md#two-browsers) for the separate Chrome requirements.
 
 Some accounts have a newer combined experience where the message box no longer shows separate "Chat" and "Cowork" options. In that case any conversation can take on a Cowork task. The steps below describe the separate-option layout.
 
@@ -39,12 +39,12 @@ Some accounts have a newer combined experience where the message box no longer s
 4. Read Claude's plan before it starts. Answer any questions it asks.
 5. Watch the progress indicators, steer if it drifts, and review the output before you use it.
 
-Use a test folder with copies of files for the first few tasks. See [Exercise 1](../exercises/01-first-delegated-task.md).
+Use a practice folder with copies of files for the first few tasks. Start with [Before You Delegate](before-you-delegate.md), then try [Exercise 1](../exercises/01-first-delegated-task.md).
 
 ## What happens during a task
 
 - Claude makes a plan and may split the work into subtasks or parallel sub-agents.
-- Code and shell commands run in the isolated cloud environment, not on your computer (in a local isolated virtual machine for Enterprise sessions that are not in the cloud).
+- Code and shell commands run in the isolated environment for that session, whether in the cloud or in a local virtual machine.
 - Progress indicators show each step. You can add direction at any time, from any surface.
 - Claude asks for explicit permission before permanently deleting files.
 

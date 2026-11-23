@@ -21,7 +21,8 @@ Part A, build the practice files:
 ```text
 In the cowork-practice folder, create one small placeholder file for each
 row of the attached file-list.csv. Use the exact file name. Put the
-content_hint text inside each file. Do not create anything else.
+content_hint as plain text inside each file, even when its name ends
+in .xlsx, .pdf, or an image extension. Do not create anything else.
 ```
 
 Part B, the real task. Attach `file-list.csv` again:
@@ -40,7 +41,7 @@ Ask me before: anything that would overwrite a file.
 
 ## Expected result characteristics
 
-- Five subfolders exist and every file is in one of them.
+- Five subfolders exist and all twelve input files are present. The mock files have text contents and may not open in the apps associated with their extensions.
 - Both budget files are kept; Claude points out they may be versions of one budget.
 - `untitled.txt` lands in Other, not deleted.
 - `changes.md` maps every old name to a new name.
@@ -54,7 +55,7 @@ Ask me before: anything that would overwrite a file.
 
 ## Common failure modes
 
-- Deleting the empty or duplicate-looking file. Your brief forbids it; if it happens, stop and check the mode you used.
+- Deleting the untitled or duplicate-looking file. Your brief forbids it; if it happens, stop and check the mode you used.
 - Guessing dates from file names instead of the CSV.
 - Creating extra folders not in the format.
 

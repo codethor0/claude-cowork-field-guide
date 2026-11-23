@@ -30,6 +30,10 @@ REQUIRED_FILES = [
     ".github/ISSUE_TEMPLATE/documentation-issue.yml",
     "docs/getting-started.md",
     "docs/delegating-a-task.md",
+    "docs/before-you-delegate.md",
+    "examples/before-you-delegate/inputs/room-booking.md",
+    "examples/before-you-delegate/inputs/coordinator-update.md",
+    "examples/before-you-delegate/expected-brief.md",
     "docs/permissions-and-modes.md",
     "docs/scheduled-tasks-and-remote-access.md",
     "docs/instructions-projects-and-memory.md",
@@ -106,13 +110,18 @@ def _git_files(root: Path):
     return [root / n for n in out.decode("utf-8").split("\0") if n]
 
 
-def list_files(root: Path):
+def list_candidates(root: Path):
     listed = _git_files(root)
     if listed is None:
-        listed = list(root.rglob("*"))
-    for path in sorted(listed):
-        if path.is_file() and not (set(path.relative_to(root).parts) & SKIP_DIRS):
-            yield path
+        listed = root.rglob("*")
+    return [
+        path for path in sorted(listed)
+        if not (set(path.relative_to(root).parts) & SKIP_DIRS)
+    ]
+
+
+def list_files(root: Path):
+    return (path for path in list_candidates(root) if not path.is_symlink() and path.is_file())
 
 
 def rel(path: Path, root: Path) -> str:
@@ -132,14 +141,16 @@ def strip_fences(text: str) -> str:
 
 def heading_slugs(text: str) -> set:
     """GitHub-style anchors, including the -1, -2 suffixes for repeated headings."""
-    slugs, counts = set(), {}
+    slugs = set()
     for line in strip_fences(text).splitlines():
         m = re.match(r"^#{1,6}\s+(.*?)\s*#*\s*$", line)
         if m:
             s = re.sub(r"[^\w\- ]", "", m.group(1).lower()).strip().replace(" ", "-")
-            n = counts.get(s, 0)
-            slugs.add(s if n == 0 else f"{s}-{n}")
-            counts[s] = n + 1
+            slug, suffix = s, 0
+            while slug in slugs:
+                suffix += 1
+                slug = f"{s}-{suffix}"
+            slugs.add(slug)
     return slugs
 
 
@@ -183,7 +194,7 @@ def check_links(root: Path):
                 errors.append(f"{rel(path, root)}: broken link {target}")
                 continue
             if anchor and dest.suffix == ".md" and dest.is_file():
-                if anchor.lower() not in heading_slugs(dest.read_text(encoding="utf-8")):
+                if unquote(anchor).lower() not in heading_slugs(dest.read_text(encoding="utf-8")):
                     errors.append(f"{rel(path, root)}: missing anchor {target}")
     return errors
 
@@ -298,8 +309,16 @@ def _check_block(name, lang, code, line):
     return []
 
 
+def check_symlinks(root: Path):
+    return [
+        f"{rel(path, root)}: symbolic links are not allowed"
+        for path in list_candidates(root)
+        if path.is_symlink()
+    ]
+
+
 def check_hygiene(root: Path):
-    errors = []
+    errors = check_symlinks(root)
     for path in list_files(root):
         name = rel(path, root)
         if path.suffix not in ALLOWED_SUFFIXES or (
@@ -374,6 +393,13 @@ CHECKS = [
 
 def main(argv):
     root = Path(argv[1]).resolve() if len(argv) > 1 else Path(__file__).resolve().parent.parent
+    symlink_errors = check_symlinks(root)
+    if symlink_errors:
+        print("FAIL  hygiene")
+        for error in symlink_errors:
+            print(f"      {error}")
+        return 1
+
     failed = 0
     for label, fn in CHECKS:
         errors = fn(root)

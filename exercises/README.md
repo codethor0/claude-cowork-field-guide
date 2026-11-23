@@ -2,7 +2,9 @@
 
 Last reviewed: 2026-11-22
 
-Seven original exercises that follow the course's arc: delegate a task, control permissions, automate, add standing context, build skills, review plugins, and work safely on the web. All input data is synthetic and lives in [examples](../examples/practice-folder/file-list.csv).
+Seven original exercises that follow the course's arc: delegate a task, control permissions, automate, add standing context, build skills, review plugins, and work safely on the web. All input data is synthetic and comes from the linked practice files or the examples in each exercise.
+
+Start with [Before You Delegate](../docs/before-you-delegate.md) for a worked example you can verify in a text editor.
 
 Each exercise has an objective, prerequisites, input data, a copy-ready prompt, expected result characteristics, a verification checklist, common failure modes, and a follow-up. Generated output varies between runs, so the exercises describe what to look for, not exact text.
 

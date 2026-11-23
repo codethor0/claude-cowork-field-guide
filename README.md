@@ -1,28 +1,24 @@
 # Claude Cowork Field Guide
 
-[![Validate](https://github.com/codethor0/claude-cowork-field-guide/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/codethor0/claude-cowork-field-guide/actions/workflows/validate.yml)
-
 A practical, independently written guide to delegating real work to Claude Cowork: how to brief a task, choose permissions, schedule recurring work, give Claude standing context, build and test skills, review plugins, and stay safe in the browser. It includes seven hands-on exercises with synthetic data and small validation scripts for the documentation itself.
 
 > Independent educational resource. Not affiliated with, sponsored by, or endorsed by Anthropic or Claude Academy. Claude and associated product names belong to their respective owners.
 
 The guide is a companion to Anthropic's Claude Academy course [Introduction to Claude Cowork](https://academy.claude.com/courses/introduction-to-claude-cowork), written by the maintainer after taking it. It contains original explanations and exercises, not course material. See [NOTICE.md](NOTICE.md).
 
+## Quick start
+
+Open [Before You Delegate](docs/before-you-delegate.md). Use two sample files and a worked answer to practice verifying a draft in any text editor. To run the task live, use Claude Desktop with a paid Cowork plan.
+
+[Run local checks](#running-the-checks) · [Report an issue or contribute](CONTRIBUTING.md) · [Licenses](#licensing-and-attribution) · [Course coverage](resources/sources-and-verification.md#course-coverage)
+
 ## Who it is for
 
 | Reader | Start with | Then |
 |---|---|---|
-| **New to Cowork** | [Getting started](docs/getting-started.md) | [Delegating a task](docs/delegating-a-task.md), [Exercise 1](exercises/01-first-delegated-task.md) |
+| **New to Cowork** | [Before You Delegate](docs/before-you-delegate.md) | [Getting started](docs/getting-started.md), [Exercise 1](exercises/01-first-delegated-task.md) |
 | **Daily user**: wants repeatable work | [Instructions, projects, and memory](docs/instructions-projects-and-memory.md) | [Skills](docs/skills.md), [Scheduled tasks](docs/scheduled-tasks-and-remote-access.md), [Exercise 5](exercises/05-build-and-test-a-skill.md) |
 | **Team lead or admin** | [Team and Enterprise](docs/team-and-enterprise.md) | [Plugins](docs/plugins.md), [Safety](docs/safety.md), [Exercise 6](exercises/06-review-a-plugin.md) |
-
-## Five-minute quick start
-
-1. Read [Getting started](docs/getting-started.md).
-2. Copy the brief template from [Delegating a task](docs/delegating-a-task.md).
-3. Make an empty practice folder and do [Exercise 1](exercises/01-first-delegated-task.md).
-
-No installation is needed to read or follow the guides.
 
 ## Learning path
 
@@ -62,7 +58,8 @@ The maintainer completed the Claude Academy course Introduction to Claude Cowork
 ## Prerequisites
 
 - To read: a web browser.
-- To do exercises: a paid Claude plan. Exercise 1 also needs the Claude Desktop app.
+- To practice offline: a text editor and copies of the walkthrough inputs.
+- To run Cowork exercises live: a paid Claude plan with Cowork access. Exercise 1 also needs Claude Desktop.
 - To run the repository checks: Python 3.9 or later (standard library only; no packages to install) and Git.
 
 ## Running the checks
@@ -75,7 +72,7 @@ python3 scripts/validate.py               # structure, links, hygiene, skills, c
 python3 scripts/check_skill.py examples/skills/weekly-status   # one skill's frontmatter
 ```
 
-The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, example skill frontmatter, forbidden file types, secret-like strings, em dashes in prose, and the CI workflow's security settings. GitHub Actions runs the same commands on pull requests and pushes to `main`.
+The validator makes no network requests. It checks required files, the disclaimer, relative links and anchors, review dates, exercise structure, duplicated content, code-block syntax, example skill frontmatter, forbidden file types, secret-like strings, em dashes in prose, and the CI workflow's security settings. The [GitHub Actions workflow](.github/workflows/validate.yml) is configured to run the same commands on pull requests and pushes to `main`.
 
 External links are reviewed by hand before releases and are not checked in CI.
 
