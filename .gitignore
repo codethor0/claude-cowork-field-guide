@@ -1,0 +1,23 @@
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Local-only notes and agent state; never published
+.claude/
+CLAUDE.md
+# The published teaching example is the one exception
+!examples/before-you-build/CLAUDE.md
+.handoff/
+*.local.md
